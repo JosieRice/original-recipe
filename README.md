@@ -32,3 +32,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ## Deploy on Vercel
 
 https://original-recipe.vercel.app/
+
+## Initial Setup
+
+1. get local vercel db setup `vercel env pull .env.development.local` [docs](https://vercel.com/docs/storage/vercel-postgres/quickstart)
