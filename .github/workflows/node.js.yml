@@ -17,7 +17,7 @@ jobs:
             - name: Setup node
               uses: actions/setup-node@v3
               with:
-                  node-version: 16.13.0
+                  node-version: 18.18.0
 
             - name: Retrieve cached dependencies
               id: cache-nodemodules
