@@ -1,8 +1,9 @@
 import { SubmitButton } from "@/components/SubmitButton";
 import { create } from "./actions";
 import { getSession } from "@auth0/nextjs-auth0";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
-export default async function Add() {
+export default withPageAuthRequired(async function Add() {
     const session = await getSession();
 
     return (
@@ -73,4 +74,4 @@ export default async function Add() {
             </form>
         </main>
     );
-}
+});
