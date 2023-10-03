@@ -74,7 +74,3 @@ export default async function Add() {
         </main>
     );
 }
-
-// cookInstructions VARCHAR(255)[],
-// ingredients VARCHAR(255)[],
-// prepInstructions VARCHAR(255)[],
