@@ -1,12 +1,9 @@
-import { sql } from "@vercel/postgres";
 import { getSession } from "@auth0/nextjs-auth0";
 import Link from "next/link";
+import { getAllRecipes } from "./actions";
 
 export default async function Home() {
-    const { rows } = await sql`SELECT * from RECIPES LIMIT 10`;
-
-    console.log({ rows });
-
+    const allRecipes = await getAllRecipes();
     const session = await getSession();
 
     return (
@@ -19,7 +16,7 @@ export default async function Home() {
                 {session?.user && <a href="/api/auth/logout">Logout</a>}
             </div>
             <div>
-                {rows.map((recipe) => {
+                {allRecipes.map((recipe) => {
                     return <div>{recipe.recipename}</div>;
                 })}
             </div>

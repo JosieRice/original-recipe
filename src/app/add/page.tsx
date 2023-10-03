@@ -50,7 +50,7 @@ export default async function Add() {
                 />
 
                 {/* Hidden Fields */}
-                <input className="hidden" name="creatorUid" value={session?.user.sid} />
+                <input className="hidden" readOnly name="creatorUid" value={session?.user.sid} />
                 <SubmitButton>Create Recipe</SubmitButton>
             </form>
         </main>
@@ -58,9 +58,5 @@ export default async function Add() {
 }
 
 // cookInstructions VARCHAR(255)[],
-// creatorUid VARCHAR(255),
-// dateUpdated FLOAT,
-// displayName VARCHAR(255),
-// imageUrl VARCHAR(255),
 // ingredients VARCHAR(255)[],
 // prepInstructions VARCHAR(255)[],
