@@ -17,7 +17,7 @@ export default async function Home() {
             </div>
             <div>
                 {allRecipes.map((recipe) => {
-                    return <div>{recipe.recipename}</div>;
+                    return <div key={recipe.id}>{recipe.recipename}</div>;
                 })}
             </div>
             <Link href={"/add"}>Add</Link>
