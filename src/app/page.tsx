@@ -1,5 +1,6 @@
 import { getSession } from "@auth0/nextjs-auth0";
 import Link from "next/link";
+
 import { getAllRecipes } from "./actions";
 
 export default async function Home() {
