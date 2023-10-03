@@ -9,7 +9,7 @@ export function SubmitButton({ children }: Props) {
     const { pending } = useFormStatus();
 
     return (
-        <button type="submit" aria-disabled={pending}>
+        <button aria-disabled={pending} type="submit">
             {children}
         </button>
     );
