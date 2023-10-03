@@ -48,6 +48,24 @@ export default async function Add() {
                     type="text"
                     name="sourceUrl"
                 />
+                <textarea
+                    className="border border-slate-300 bg-transparent rounded px-2 py-1 outline-none focus-within:border-slate-100"
+                    placeholder="Cooking Instructions"
+                    name="cookInstructions"
+                    rows={6}
+                />
+                <textarea
+                    className="border border-slate-300 bg-transparent rounded px-2 py-1 outline-none focus-within:border-slate-100"
+                    placeholder="Prep Instructions"
+                    name="prepInstructions"
+                    rows={6}
+                />
+                <textarea
+                    className="border border-slate-300 bg-transparent rounded px-2 py-1 outline-none focus-within:border-slate-100"
+                    placeholder="Ingredients"
+                    name="ingredients"
+                    rows={6}
+                />
 
                 {/* Hidden Fields */}
                 <input className="hidden" readOnly name="creatorUid" value={session?.user.sid} />
