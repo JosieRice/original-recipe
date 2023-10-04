@@ -7,7 +7,7 @@ export async function NavBar() {
     const session = await getSession();
 
     return (
-        <nav className="navbar bg-base-100 sticky top-0 z-50">
+        <nav className="navbar bg-base-300 sticky top-0 z-50">
             <div className="flex-1">
                 <Link className="btn btn-ghost normal-case text-xl" href="/">
                     Original Recipe

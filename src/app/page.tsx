@@ -1,18 +1,16 @@
-import { NavBar } from "@/components/NavBar";
-import { getSession } from "@auth0/nextjs-auth0";
+import { RecipeCard } from "@/components/RecipeCard";
 import Link from "next/link";
 
 import { getAllRecipes } from "./actions";
 
 export default async function Home() {
     const allRecipes = await getAllRecipes();
-    const session = await getSession();
 
     return (
         <main className="container">
-            <div>
+            <div className="flex flex-initial flex-wrap justify-around">
                 {allRecipes.map((recipe) => {
-                    return <div key={recipe.id}>{recipe.recipename}</div>;
+                    return <RecipeCard description={recipe.description} key={recipe.id} recipeName={recipe.recipename} />;
                 })}
             </div>
             <Link className="btn" href={"/add"}>
