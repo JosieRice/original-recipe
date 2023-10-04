@@ -1,0 +1,36 @@
+import { getSession } from "@auth0/nextjs-auth0";
+
+import { Avatar } from "./Avatar";
+
+export async function NavBar() {
+    const session = await getSession();
+
+    return (
+        <div className="navbar bg-base-100">
+            <div className="flex-1">
+                <a className="btn btn-ghost normal-case text-xl">Original Recipe</a>
+            </div>
+            <div className="flex-none gap-2">
+                <div className="form-control">
+                    <input className="input input-bordered w-24 md:w-auto" placeholder="Search" type="text" />
+                </div>
+                {!session?.user && (
+                    <a className="btn" href="/api/auth/login">
+                        Login
+                    </a>
+                )}
+                {session?.user && (
+                    <div className="dropdown dropdown-end">
+                        <Avatar />
+                        <ul className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52" tabIndex={0}>
+                            <li>
+                                {session?.user && <a href="/api/auth/logout">Logout</a>}
+                                {!session?.user && <a href="/api/auth/login">Login</a>}
+                            </li>
+                        </ul>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
