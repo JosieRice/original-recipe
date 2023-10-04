@@ -8,7 +8,7 @@ export default async function Home() {
 
     return (
         <main className="container">
-            <div className="flex flex-initial flex-wrap justify-around">
+            <div className="flex flex-initial flex-wrap justify-around gap-4">
                 {allRecipes.map((recipe) => {
                     return <RecipeCard description={recipe.description} key={recipe.id} recipeName={recipe.recipename} />;
                 })}
