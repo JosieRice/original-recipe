@@ -11,23 +11,6 @@ export default async function Home() {
     return (
         <main className="container">
             <NavBar />
-            {/* flex min-h-screen flex-col items-center justify-between p-24 */}
-            <div className="flex justify-between">
-                {/* z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex */}
-                <h1>Coming soon, recipes!</h1>
-                <h2>{session?.user.name}</h2>
-
-                {!session?.user && (
-                    <a className="btn" href="/api/auth/login">
-                        Login
-                    </a>
-                )}
-                {session?.user && (
-                    <a className="btn" href="/api/auth/logout">
-                        Logout
-                    </a>
-                )}
-            </div>
             <div>
                 {allRecipes.map((recipe) => {
                     return <div key={recipe.id}>{recipe.recipename}</div>;
