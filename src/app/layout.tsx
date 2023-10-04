@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { NavBar } from "@/components/NavBar";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
 import { Inter } from "next/font/google";
 
@@ -16,7 +17,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html data-theme="retro" lang="en">
             <UserProvider>
-                <body className={inter.className}>{children}</body>
+                <body className={inter.className}>
+                    <NavBar />
+                    {children}
+                </body>
             </UserProvider>
         </html>
     );

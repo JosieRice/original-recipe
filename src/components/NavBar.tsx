@@ -1,4 +1,5 @@
 import { getSession } from "@auth0/nextjs-auth0";
+import Link from "next/link";
 
 import { Avatar } from "./Avatar";
 
@@ -6,9 +7,11 @@ export async function NavBar() {
     const session = await getSession();
 
     return (
-        <div className="navbar bg-base-100">
+        <nav className="navbar bg-base-100 sticky top-0 z-50">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">Original Recipe</a>
+                <Link className="btn btn-ghost normal-case text-xl" href="/">
+                    Original Recipe
+                </Link>
             </div>
             <div className="flex-none gap-2">
                 <div className="form-control">
@@ -31,6 +34,6 @@ export async function NavBar() {
                     </div>
                 )}
             </div>
-        </div>
+        </nav>
     );
 }

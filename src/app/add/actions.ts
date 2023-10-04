@@ -2,6 +2,7 @@
 
 import { getArrayFromText } from "@/utils/getArrayFromText";
 import { getPostgresArray } from "@/utils/getPostgresArray";
+import { getSession } from "@auth0/nextjs-auth0";
 import { sql } from "@vercel/postgres";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -10,7 +11,6 @@ import { z } from "zod";
 const recipeSchema = z.object({
     cookInstructions: z.string(),
     cookTime: z.string(),
-    creatorUid: z.string(),
     description: z.string(),
     ingredients: z.string(),
     prepInstructins: z.string(),
@@ -24,7 +24,6 @@ export async function create(formData: FormData) {
     const parsed = recipeSchema.parse({
         cookInstructions: formData.get("cookInstructions"),
         cookTime: formData.get("cookTime"),
-        creatorUid: formData.get("creatorUid"),
         description: formData.get("description"),
         ingredients: formData.get("ingredients"),
         prepInstructins: formData.get("prepInstructions"),
@@ -33,6 +32,8 @@ export async function create(formData: FormData) {
         sourceType: formData.get("sourceType"),
         sourceUrl: formData.get("sourceUrl"),
     });
+
+    const session = await getSession();
 
     await sql`INSERT INTO RECIPES
         (
@@ -53,7 +54,7 @@ export async function create(formData: FormData) {
         (
             ${getPostgresArray(getArrayFromText(parsed.cookInstructions))},
             ${parsed.cookTime},
-            ${parsed.creatorUid},
+            ${session?.user.sub},
             ${new Date().toISOString()},
             ${new Date().toISOString()},
             ${parsed.description},
