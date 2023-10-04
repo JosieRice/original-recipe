@@ -10,7 +10,6 @@ export default async function Home() {
 
     return (
         <main className="container">
-            <NavBar />
             <div>
                 {allRecipes.map((recipe) => {
                     return <div key={recipe.id}>{recipe.recipename}</div>;
