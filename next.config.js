@@ -18,6 +18,13 @@ const nextConfig = {
             pathname: '**',
             port: '',
             protocol: 'https'
+          },
+          // uploaded images
+          {
+            hostname: 'fpyz1dyfygyrju25.public.blob.vercel-storage.com',
+            pathname: '**',
+            port: '',
+            protocol: 'https'
           }
         ],
       },
