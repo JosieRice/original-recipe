@@ -5,7 +5,7 @@ import type { PutBlobResult } from "@vercel/blob";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useRef } from "react";
 
-export default function RecipePhotoUploadPage() {
+export default function UploadImage() {
     const inputFileRef = useRef<HTMLInputElement>(null);
     const router = useRouter();
     const pathname = usePathname();

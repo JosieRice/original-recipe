@@ -1,6 +1,7 @@
 import { InputWithLabel } from "@/components/InputWithLabel";
 import { SubmitButton } from "@/components/SubmitButton";
 import { Textarea } from "@/components/TextareaWithLabel";
+import UploadImage from "@/components/UploadImage";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 import { create } from "./actions";
@@ -11,6 +12,7 @@ export default withPageAuthRequired(
             <main className="container">
                 <h1>Add a Recipe</h1>
 
+                <UploadImage />
                 <form action={create}>
                     <InputWithLabel label="Recipe Name" name="recipeName" />
                     <InputWithLabel label="Preparation Time" name="prepTime" />
